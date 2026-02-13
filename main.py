@@ -1,33 +1,52 @@
 import random
 
-print('----------------------\nPEDRA PAPEL ou TESOURA\n----------------------\n\nPreparado para a batalha? \n\nEscolha Pedra, Papel ou Tesoura para vencer o computador\n\n|**Lembre as regras:**|\n| PEDRA vence TESOURA, |\n| TESOURA vence PAPEL  |\n| e PAPEL vence PEDRA  |\n\nEntão vamos lá:\n\n')
+print('----------------------\nPEDRA PAPEL ou TESOURA\n----------------------\
+    \n\nPreparado para a batalha???\
+    \n\nEscolha Pedra, Papel ou Tesoura para vencer o computador\
+    \n\n|**Lembre as regras:**|\n| PEDRA vence TESOURA |\n| TESOURA vence PAPEL |\n| PAPEL vence PEDRA   |\
+    \n\nEntão vamos lá:\n\n'
+    )
+
 for i in range(3,0,-1): # Contagem regressiva
     print(f'{i} ...\n')
 
-opcoes = ['PEDRA','PAPEL','TESOURA']
+opcoes = ['PEDRA','PAPEL','TESOURA'] # opções para o a jogada do computador selecionar ramdomicamente
 continuar = 'S'
 batalha = 0
 vitorias = 0
 empates = 0
 derrotas = 0
 
-while continuar.upper() == 'S':
-    jogada = input(print('> Faça sua jogada (Digite: PEDRA, PAPEL ou TESOURA): '))
-    jogada_com = random.choice(opcoes)
-    batalha += 1
+while continuar.upper() == 'S': # loop de jogadas
+    while True: # validação de entrada
+        jogada = (input('\n> Faça sua jogada (Digite: PEDRA, PAPEL ou TESOURA): ')) # jogada do usúario
+        if jogada in ['pedra', 'papel', 'tesoura', 'PEDRA', 'PAPEL', 'TESOURA']: # verificação das possibilidades aceitas
+            break
+        print("Opção inválida! Digite PEDRA, PAPEL ou TESOURA.")
+    jogada_com = random.choice(opcoes) # jogada do computador
+    batalha += 1 # contador de batalhas
 
-    if jogada.upper() == jogada_com:
-        print(f"\nVocê escolheu {jogada} e o computador escolheu {jogada_com}\n# Temos um EMPATE!!!")
-        empates += 1
+    if jogada.upper() == jogada_com: # condição de empate
+        print(f"\nVocê escolheu {jogada.upper()} e o computador escolheu {jogada_com}\n# Temos um EMPATE!!!\n")
+        empates += 1 # contador 
 
-    elif jogada.upper() == 'PEDRA' and jogada_com=='TESOURA' or jogada.upper() == 'PAPEL'and jogada_com =='PEDRA' or jogada.upper() == 'TESOURA' and jogada_com =='PAPEL':
-        print(f"\nVocê escolheu {jogada} e o computador escolheu {jogada_com}\n# PARABÉNS!!! Você ganhou!!")
-        continuar = input(print('\n> Quer tentar novamente? (Digite "s" para sim ou "n" para não): '))
-        vitorias += 1
+    elif jogada.upper() == 'PEDRA' and jogada_com=='TESOURA' or jogada.upper() == 'PAPEL'and jogada_com =='PEDRA' or jogada.upper() == 'TESOURA' and jogada_com =='PAPEL': # condições de vitória
+        print(f"\nVocê escolheu {jogada.upper()} e o computador escolheu {jogada_com}\n# PARABÉNS!!! Você ganhou!!")
+        while True: # validação de entrada
+            continuar = input('\n> Quer tentar novamente? (Digite "S" para sim ou "N" para não): \n')
+            if continuar in ['s', 'n', 'S', 'N']: # verificação das possibilidades aceitas
+                break
+            print("Opção inválida! Digite 'S' ou 'N'.")
+        vitorias += 1 # contador 
 
-    else:
-        print(f"\nVocê escolheu {jogada} e o computador escolheu {jogada_com}\n# Você perdeu.")
-        continuar = input(print('\n> Quer tentar novamente? (Digite "s" para sim ou "n" para não): '))
-        derrotas += 1
+    else: # derrota
+        print(f"\nVocê escolheu {jogada.upper()} e o computador escolheu {jogada_com}\n# Você perdeu.")
+        while True: # validação de entrada
+            continuar = input('\n> Quer tentar novamente? (Digite "S" para sim ou "N" para não): \n')
+            if continuar in ['s', 'n', 'S', 'N']: # verificação das possibilidades aceitas
+                break
+            print("Opção inválida! Digite 'S' ou 'N'.")
+        derrotas += 1 # contador 
 
-print(f'\n\nVocê batalhou {batalha} vezes! Veja seus resultados: \n# Vitórias: {vitorias}\n# Derrotas: {derrotas}\n# Empates: {empates}\n\n\n---\nFIM\n---')
+print(f'\n\nVocê batalhou {batalha} vezes! Veja seus resultados: \n\
+# Vitórias: {vitorias}\n# Derrotas: {derrotas}\n# Empates: {empates}\n\n\n---\nFIM\n---') # feedbacks
