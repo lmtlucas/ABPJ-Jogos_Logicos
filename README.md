@@ -39,6 +39,7 @@ _Esse programa foi desenvolvido na disciplina de Python Básico do curso Técnic
 - main.py → contém os arquivos principais do código  
 - README.md → documentação do projeto  
 - fluxograma.png → imagem do fluxograma do projeto
+- main_alt_match_case.py → versão alternativa utilizando match case
 
 ---
 
