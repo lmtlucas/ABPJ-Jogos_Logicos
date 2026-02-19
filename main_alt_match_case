@@ -1,0 +1,60 @@
+import random
+
+print('----------------------\nPEDRA PAPEL ou TESOURA\n----------------------\
+    \n\nPreparado para a batalha???\
+    \n\nEscolha Pedra, Papel ou Tesoura para vencer o computador\
+    \n\n|**Lembre as regras:**|\n| PEDRA vence TESOURA |\n| TESOURA vence PAPEL |\n| PAPEL vence PEDRA   |\
+    \n\nEntão vamos lá:\n\n'
+    )
+
+for i in range(3,0,-1): # Contagem regressiva
+    print(f'{i} ...\n')
+
+opcoes = ['PEDRA','PAPEL','TESOURA'] # opções para o a jogada do computador selecionar ramdomicamente
+continuar = 'S'
+batalha = 0
+vitorias = 0
+empates = 0
+derrotas = 0
+
+while continuar == 'S': # loop de jogadas
+
+    while True: # validação de entrada
+        jogada = input('\n> Faça sua jogada (Digite: PEDRA, PAPEL ou TESOURA): ').upper() # jogada do usúario
+        if jogada in ['PEDRA', 'PAPEL', 'TESOURA']: # verificação das possibilidades aceitas
+            break
+        else:
+            print("Opção inválida! Digite PEDRA, PAPEL ou TESOURA.")
+
+    jogada_com = random.choice(opcoes) # jogada do computador
+    batalha += 1 # contador de batalhas
+
+    match (jogada, jogada_com):  #match case para comparar as variaveis e indicar o resultado
+        case (jogada, jogada_com) if jogada == jogada_com:
+            print(f"\nVocê escolheu {jogada} e o computador escolheu {jogada_com}\n# Temos um EMPATE!!!\n")
+            empates += 1 # contador          
+
+        case ('PEDRA','TESOURA' ) | ('PAPEL','PEDRA') | ('TESOURA', 'PAPEL'): # condições de vitória
+            print(f"\nVocê escolheu {jogada} e o computador escolheu {jogada_com}\n# PARABÉNS!!! Você ganhou!!")
+
+            while True: # validação de entrada
+                continuar = input('\n> Quer tentar novamente? (Digite "S" para sim ou "N" para não): \n').upper()
+                if continuar in ['S', 'N']: # verificação das possibilidades aceitas
+                    break
+                else:
+                    print("Opção inválida! Digite 'S' ou 'N'.")
+
+            vitorias += 1 # contador 
+
+        case _: # derrota
+            print(f"\nVocê escolheu {jogada} e o computador escolheu {jogada_com}\n# Você perdeu.")
+            while True: # validação de entrada
+                continuar = input('\n> Quer tentar novamente? (Digite "S" para sim ou "N" para não): \n').upper()
+                if continuar in ['S', 'N']: # verificação das possibilidades aceitas
+                    break
+                else:
+                    print("Opção inválida! Digite 'S' ou 'N'.")
+            derrotas += 1 # contador 
+
+print(f'\n\nVocê batalhou {batalha} vezes! Veja seus resultados: \n\
+# Vitórias: {vitorias}\n# Derrotas: {derrotas}\n# Empates: {empates}\n\n\n---\nFIM\n---') # feedbacks
