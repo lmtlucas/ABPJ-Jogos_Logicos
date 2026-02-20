@@ -23,7 +23,7 @@ _Esse programa foi desenvolvido na disciplina de Python Básico do curso Técnic
 ---
 
 ## 🛠️ Tecnologias Utilizadas
-- Linguagem: Python 
+- Linguagem: Python 3.10 ou superior
 - Ferramentas: VS Code, GitHub
 - Outras: Canvas
 
@@ -62,24 +62,6 @@ _Esse programa foi desenvolvido na disciplina de Python Básico do curso Técnic
 
 - Teste com inserção de valores aleatórios com verificação de resultados esperados.
 
----
-
-## 🚧 Dificuldades Encontradas
-Relate:
-- Quais foram as principais dificuldades durante o desenvolvimento.
-- O que foi mais desafiador de entender ou implementar.
-
-👉 *Essa parte é muito importante para o aprendizado.*
-
----
-
-## 📚 Aprendizados
-Explique o que você aprendeu com o projeto.
-
-Exemplo:
-- Conceitos novos.
-- Melhoria no raciocínio lógico.
-- Uso de ferramentas como GitHub.
 
 ---
 
